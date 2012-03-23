@@ -1,0 +1,49 @@
+These files are public domain. Do with them as you wish.
+
+How to going in 7 easy steps:
+
+1. Install linuxCNC on an old (USB enabled) computer.
+	You can get it for free at http://linuxcnc.org/
+
+2. Open the EmcArduino firmware adjust to suite, upload it to your Arduino Mega 2560.
+	It can be done with an UNO if your really clever about pin managment.
+
+3. Run the "EMC2 Stepconf Wizard" to setup your machine, it will by default create a folder
+   on your desktop called "my-mill".
+
+4. Copy the included custom.hal file into said "my-mill" folder.
+
+5. Open a Terminal window and do the following:
+
+	copy the 4axis_arduino file to /usr/bin/ with something like:
+		sudo cp /your/directory/of/choice/4axis_arduino /usr/bin
+
+	then make it executable with,
+		chmod +x /usr/bin/4axis_arduino
+
+6. Edit the my-mill.hal file and look for lines containing "parport." like:
+	net home-x <= parport.0.pin-10-in
+	net home-y <= parport.0.pin-11-in
+	net home-z <= parport.0.pin-12-in
+	net home-a <= parport.0.pin-13-in
+
+	put a # symbol infront of them to comment them out like so:
+
+	#net home-x <= parport.0.pin-10-in
+	#net home-y <= parport.0.pin-11-in
+	#net home-z <= parport.0.pin-12-in
+	#net home-a <= parport.0.pin-13-in
+
+
+7. Play with your CNC for a while tuning and tweaking it by editing the my-mill.ini file
+	in the my-mill folder.
+
+
+
+Tips: Inside the my-mill.ini the following settings <> to english are:
+
+MAX_VELOCITY = .42		<>	Maximum speed limit for an axis (in feet/meters per second).
+HOME = 2.0			<>	Where your home SWITCH is located for that axis. (in inches/mm)
+HOME_OFFSET = 0.0		<>	Where to move to after it finds the switch. (in inches/mm)
+
+Further reading on these and more settings are found at http://linuxcnc.org/index.php/english/documentation
