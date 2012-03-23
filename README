@@ -1,3 +1,7 @@
-EMC 2 Arduino is a small collection of files intended to allow a person with an Arduino Mega2560 (or UNO), an old USB enabled computer and a free copy of LinuxCNC to begin building their very own CNC machine cheaply and quickly with a variety of components, ranging from low-end inexpensive (even salvaged) components such as old steppers and computer parts to high-end linear servos.
+EMC 2 Arduino is a small collection of files intended to allow a person with
+an Arduino Mega2560 (or UNO), an old USB enabled computer and a free copy of
+LinuxCNC to begin building their very own CNC machine cheaply and quickly with
+a variety of components, ranging from low-end inexpensive (even salvaged)
+components such as old steppers and computer parts to high-end linear servos.
 
-Right now We're just beginning and learning too.
+Right now We're just beginning, accepting advice, contribution and learning too.
