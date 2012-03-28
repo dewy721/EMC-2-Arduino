@@ -21,7 +21,7 @@ How to going in 7 easy steps:
 	then make it executable with,
 		chmod +x /usr/bin/4axis_arduino
 
-6. Edit the my-mill.hal file and look for lines containing "parport." like:
+6. Edit the my-mill.hal file and look for lines beginning with "net" that also contain "parport." like:
 	net home-x <= parport.0.pin-10-in
 	net home-y <= parport.0.pin-11-in
 	net home-z <= parport.0.pin-12-in
