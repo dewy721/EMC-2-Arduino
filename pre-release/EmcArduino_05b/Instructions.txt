@@ -46,4 +46,9 @@ MAX_VELOCITY = 2.33		<>	Maximum speed limit for an axis (in feet/meters per seco
 HOME = 2.0			<>	Where your home SWITCH is located for that axis. (in inches/mm)
 HOME_OFFSET = 0.0		<>	Where to move to after it finds the switch. (in inches/mm)
 
-Further reading on these and more settings are found at http://linuxcnc.org/index.php/english/documentation
+I included an EXAMPLE-my-mill.ini file to help you compare against. It is a working copy (for me at least).
+To use it you'll need to backup your original and replace it with this one.
+
+If you really want to get the feel for EMC's universe of settings, your best place to start reading is at:
+	http://linuxcnc.org/index.php/english/documentation
+
