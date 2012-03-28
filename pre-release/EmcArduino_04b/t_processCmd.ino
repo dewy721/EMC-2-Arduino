@@ -20,10 +20,10 @@ void processCommand()
   }
 
   jog(xx,yy,zz,aa);
-  targetX=pos_x/100;
-  targetY=pos_y/100;
-  targetZ=pos_z/100;
-  targetA=pos_a/100;
+  targetX=pos_x*stepsPerInchX/500000;
+  targetY=pos_y*stepsPerInchY/500000;
+  targetZ=pos_z*stepsPerInchZ/500000;
+  targetA=pos_a*stepsPerInchA/500000;
 }
 
 

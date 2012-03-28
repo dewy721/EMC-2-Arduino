@@ -38,7 +38,13 @@ void loop() {
       while(Serial.available() > 0) {
         buffer[128];
         buffer[sofar++]=Serial.read();
-        if(buffer[sofar-1]==';') break; // in case there are multiple instructions
+        if(buffer[sofar-1]==';')
+        {
+//          Serial2.println(";");
+          break; // in case there are multiple instructions
+        }else{
+//          Serial2.print(buffer);
+        }
       }
     }else{
 
@@ -103,8 +109,8 @@ if(aHomeState != aHomeStateOld)
 }
     processLimits('X',targetX); 
     processLimits('Y',targetY); 
-    processLimits('Z',targetZ); 
-    processLimits('A',targetZ); 
+    processLimits('Z',targetZ);
+    processLimits('A',targetA); 
     doStepperMove('X',targetX);
     doStepperMove('Y',targetY);
     doStepperMove('Z',targetZ);

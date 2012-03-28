@@ -75,7 +75,8 @@ void setup() {
   digitalWrite(pwrSwitch,HIGH);
   analogWrite(pwmX,xPowerOutput);
   analogWrite(pwmY,yPowerOutput);
-  Serial.begin(38400);
+  Serial.begin(115200);
+//  Serial2.begin(57600);
   lcd.begin(lcdColumns, lcdRows);
 }
 

@@ -1,23 +1,27 @@
-// Adjust these to reflect EMC's limits *1000000
-#define xMinLimit -100000 //-500000
-#define yMinLimit -10000 //-250000
-#define zMinLimit -100000
-#define aMinLimit -100000
+// Adjust these to reflect EMC's limits in 1/1000ths of an inch.
+#define xMinLimit -14000 //-500000
+#define yMinLimit -14000 //-250000
+#define zMinLimit -14000
+#define aMinLimit -10000
 #define xMaxLimit 140000
 #define yMaxLimit 140000
 #define zMaxLimit 140000
-#define aMaxLimit 140000
-#define stepsPerInchX 200
-#define stepsPerInchY 200
-#define stepsPerInchZ 200
-#define stepsPerInchA 200
+#define aMaxLimit 100000
+#define xHomeSwitch 2000
+#define yHomeSwitch 2000
+#define zHomeSwitch 2000
+#define aHomeSwitch 2000
+#define stepsPerInchX 3200
+#define stepsPerInchY 3200
+#define stepsPerInchZ 3200
+#define stepsPerInchA 3200  // 200 steps per revolution with 1/16th microstepping = 3200 (aka: 200 * 16 = 3200 microsteps per rev)
 
 
 // Pin config section
 #define pwrSwitch -1 // For toggling power button within the EMC application window.
 
 #define microSteppingPins 3 // Number of microstepping pins for each channel. (Set to 0 to disable.)
-#define minStepTime 50 // in MICRO seconds.
+#define minStepTime 25 // in MICRO seconds.
 #define chanXms1 45
 #define chanXms2 47
 #define chanXms3 49

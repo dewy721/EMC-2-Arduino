@@ -59,7 +59,7 @@ void doStepperMove(char axis, long Position)
 //      stepMode('X',xSteps/2);
     }
 
-    if(currentX > 2000 && currentX < 3250)
+    if(currentX > xHomeSwitch && currentX < xHomeSwitch*1.5)
     {
       xHomeState=true;
     }else{
@@ -101,7 +101,7 @@ void doStepperMove(char axis, long Position)
       digitalWrite(yEnablePin,LOW);
     }
 
-    if(currentY > 2000 && currentY < 3250)
+    if(currentY > yHomeSwitch && currentY < yHomeSwitch*1.5)
     {
       yHomeState=true;
     }else{
@@ -142,7 +142,7 @@ void doStepperMove(char axis, long Position)
       digitalWrite(zEnablePin,LOW);
     }
     
-    if(currentZ > 2000 && currentZ < 3250)
+    if(currentZ > zHomeSwitch && currentZ < zHomeSwitch*1.5)
     {
       zHomeState=true;
     }else{
@@ -183,7 +183,7 @@ void doStepperMove(char axis, long Position)
       digitalWrite(aEnablePin,LOW);
     }
       
-    if(currentA > 2000 && currentA < 3250)
+    if(currentA > aHomeSwitch && currentA < aHomeSwitch*1.5)
     {
       aHomeState=true;
     }else{

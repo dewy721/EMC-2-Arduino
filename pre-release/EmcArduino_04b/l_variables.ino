@@ -48,8 +48,10 @@ long currentX=1;
 long currentY=1;
 long currentZ=1;
 long currentA=1;
-int stepModeX=4;
-int stepModeY=4;
-int stepModeZ=4;
-int stepModeA=4;
+int stepModeX;
+int stepModeY;
+int stepModeZ;
+int stepModeA;
 long rollTime=0; // rollover dectection.
+
+
