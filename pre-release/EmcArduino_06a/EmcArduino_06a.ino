@@ -251,12 +251,17 @@ Note concerning switches: Be smart!
 #define vMax 15.1
 #define wMax 15.1
 
-/*  This indicator led will let you know how hard you pushing the Arduino.
+/*
+  This indicator led will let you know how hard you pushing the Arduino.
+
+  To test: Issue a G0 in the GUI command to send all axies to near min limits then to near max limits.
+  Watch the indicator led as you do this. Adjust "Max Velocity" setting to suit.
 
   MOSTLY ON  = You can safely go faster.
   FREQUENT BLINK = This is a safe speed. The best choice.
   OCCASIONAL BLINK = Your a speed demon. Pushing it to the limits.
   OFF COMPLETELY = Pushing it too hard. Slow down! The Arduino can't cope, your CNC will break bits and make garbage.
+  
 */
 #define idleIndicator 13
 
