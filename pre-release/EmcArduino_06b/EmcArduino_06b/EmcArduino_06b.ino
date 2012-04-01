@@ -1,4 +1,6 @@
 /*
+This work is public domain.
+
 Please note: Although there are a LOT pin settings here.
 You can get by with as few as TWO pins per Axis. (dir & step)
 ie: 3 axies = 6 pins used. (minimum)
