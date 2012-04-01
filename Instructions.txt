@@ -1,5 +1,6 @@
 These files are public domain. Do with them as you wish.
 
+The following instructions apply to CNC users. ( Robotics enthusiasts can just upload the sketch and play. :)
 How to going in 7 easy steps:
 
 1. Install linuxCNC on an old (USB enabled) computer.
