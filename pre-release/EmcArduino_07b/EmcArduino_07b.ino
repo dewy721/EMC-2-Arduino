@@ -42,8 +42,10 @@ Note concerning switches: Be smart!
 #include <digitalWriteFast.h> // http://code.google.com/p/digitalwritefast/
 
 #define BAUD    (115200)
-#define VERSION "0.07a"
-#define ROLE    "ALL-IN-ONE"
+
+// These will be used in the near future.
+#define VERSION "00072"      // 5 caracters
+#define ROLE    "ALL-IN-ONE" // 10 characters
 
 #define stepsPerInchX 3200
 #define stepsPerInchY 3200
