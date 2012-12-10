@@ -1,0 +1,204 @@
+# Include your customized HAL commands here
+# This file will not be overwritten when you run stepconf again
+
+#First load the Python user module named /user/bin/9axis_arduino with the name 'arduino'
+loadusr -Wn arduino /usr/bin/9axis_arduino
+
+#Second 'unlinkp' our pins to make them available for use.
+# Then use 'net' to recreate/hook into them.
+#  Comment out any sections that your machine doesn't have.
+
+# Control panel switches
+	# E-Stop
+unlinkp iocontrol.0.user-enable-out
+unlinkp iocontrol.0.emc-enable-in
+net eStop iocontrol.0.user-enable-out => arduino.eStop
+net eStop iocontrol.0.emc-enable-in <= arduino.eStop
+
+	# Power
+unlinkp halui.machine.is-on
+unlinkp halui.machine.on
+unlinkp halui.machine.off
+net machstate arduino.machine-state <= halui.machine.is-on
+net turnoff halui.machine.off <= arduino.switch-off
+net turnon halui.machine.on <= arduino.switch-on
+
+	# Start/Run
+unlinkp halui.program.run
+net ProgramStart arduino.start => halui.program.run
+
+	# Stop
+unlinkp halui.program.stop
+net ProgramStop arduino.stop => halui.program.stop
+
+	# Pause
+unlinkp halui.program.pause
+net ProgramPause arduino.pause => halui.program.pause
+
+	# Resume
+unlinkp halui.program.resume
+net ProgramResume arduino.resume => halui.program.resume
+
+	# Program step
+unlinkp halui.program.step
+net ProgramStep arduino.step => halui.program.step
+
+	# Touch probe
+unlinkp motion.probe-input
+net probe arduino.probe => motion.probe-input
+
+	# Spindle power
+unlinkp motion.spindle-on
+net spindle-On arduino.spindleEnable <= motion.spindle-on
+
+	# Spindle direction
+unlinkp motion.spindle-reverse
+net spindle-Dir arduino.spindleDirection <= motion.spindle-reverse
+
+	# Spindle at speed
+unlinkp motion.spindle-at-speed
+net spindle-at-speed arduino.spindleAtSpeed => motion.spindle-at-speed
+
+	# Coolant flood
+unlinkp iocontrol.0.coolant-flood
+net flood arduino.coolantFlood <= iocontrol.0.coolant-flood
+
+	# Coolant mist
+unlinkp iocontrol.0.coolant-mist
+net mist arduino.coolantMist <= iocontrol.0.coolant-mist
+
+
+###############################################################################
+##### Now on to the axies, if you don't have a given axis comment out the #####
+##### related section entirely. If you don't, EMC will crash on load.     #####
+#####  (But will give you useful debug info to guide you.)                #####
+###############################################################################
+##### If you just want the switches for an axis, comment out the lines    #####
+##### containing the word 'motor' in them for the axies you DO have.      #####
+###############################################################################
+
+### X-axis (axis.0) ###
+unlinkp axis.0.home-sw-in
+net home-X arduino.xHome => axis.0.home-sw-in
+
+unlinkp axis.0.neg-lim-sw-in
+net min-X => arduino.xMinLmt => axis.0.neg-lim-sw-in
+
+unlinkp axis.0.pos-lim-sw-in
+net max-X => arduino.xMaxLmt => axis.0.pos-lim-sw-in
+
+unlinkp axis.0.motor-pos-cmd
+net xpos-cmd axis.0.motor-pos-cmd => arduino.axis0-cmd
+
+
+### Y-axis (axis.1) ###
+unlinkp axis.1.home-sw-in
+net home-Y arduino.yHome => axis.1.home-sw-in
+
+unlinkp axis.1.neg-lim-sw-in
+net min-Y => arduino.yMinLmt => axis.1.neg-lim-sw-in
+
+unlinkp axis.1.pos-lim-sw-in
+net max-Y => arduino.yMaxLmt => axis.1.pos-lim-sw-in
+
+unlinkp axis.1.motor-pos-cmd
+net ypos-cmd axis.1.motor-pos-cmd => arduino.axis1-cmd
+
+
+### Z-axis (axis.2) ###
+unlinkp axis.2.home-sw-in
+net home-Z arduino.zHome => axis.2.home-sw-in
+
+unlinkp axis.2.neg-lim-sw-in
+net min-Z => arduino.zMinLmt => axis.2.neg-lim-sw-in
+
+unlinkp axis.2.pos-lim-sw-in
+net max-Z => arduino.zMaxLmt => axis.2.pos-lim-sw-in
+
+unlinkp axis.2.motor-pos-cmd
+net zpos-cmd axis.2.motor-pos-cmd => arduino.axis2-cmd
+
+
+### A-axis (axis.3) ###
+unlinkp axis.3.home-sw-in
+net home-A arduino.aHome => axis.3.home-sw-in
+
+unlinkp axis.3.neg-lim-sw-in
+net min-A => arduino.aMinLmt => axis.3.neg-lim-sw-in
+
+unlinkp axis.3.pos-lim-sw-in
+net max-A => arduino.aMaxLmt => axis.3.pos-lim-sw-in
+
+unlinkp axis.3.motor-pos-cmd
+net apos-cmd axis.3.motor-pos-cmd => arduino.axis3-cmd
+
+
+### B-axis (axis.4) ###
+#unlinkp axis.4.home-sw-in
+#net home-B arduino.bHome => axis.4.home-sw-in
+
+#unlinkp axis.4.neg-lim-sw-in
+#net min-B => arduino.bMinLmt => axis.4.neg-lim-sw-in
+
+#unlinkp axis.4.pos-lim-sw-in
+#net max-B => arduino.bMaxLmt => axis.4.pos-lim-sw-in
+
+#unlinkp axis.4.motor-pos-cmd
+#net bpos-cmd axis.4.motor-pos-cmd => arduino.axis4-cmd
+
+
+### C-axis (axis.5) ###
+#unlinkp axis.5.home-sw-in
+#net home-C arduino.cHome => axis.5.home-sw-in
+
+#unlinkp axis.5.neg-lim-sw-in
+#net min-C => arduino.cMinLmt => axis.5.neg-lim-sw-in
+
+#unlinkp axis.5.pos-lim-sw-in
+#net max-C => arduino.cMaxLmt => axis.5.pos-lim-sw-in
+
+#unlinkp axis.5.motor-pos-cmd
+#net cpos-cmd axis.5.motor-pos-cmd => arduino.axis5-cmd
+
+
+### U-axis (axis.6) ###
+#unlinkp axis.6.home-sw-in
+#net home-U arduino.uHome => axis.6.home-sw-in
+
+#unlinkp axis.6.neg-lim-sw-in
+#net min-U => arduino.uMinLmt => axis.6.neg-lim-sw-in
+
+#unlinkp axis.6.pos-lim-sw-in
+#net max-U => arduino.uMaxLmt => axis.6.pos-lim-sw-in
+
+#unlinkp axis.6.motor-pos-cmd
+#net upos-cmd axis.6.motor-pos-cmd => arduino.axis6-cmd
+
+
+### V-axis (axis.7) ###
+#unlinkp axis.7.home-sw-in
+#net home-V arduino.vHome => axis.7.home-sw-in
+
+#unlinkp axis.7.neg-lim-sw-in
+#net min-V => arduino.vMinLmt => axis.7.neg-lim-sw-in
+
+#unlinkp axis.7.pos-lim-sw-in
+#net max-V => arduino.vMaxLmt => axis.7.pos-lim-sw-in
+
+#unlinkp axis.7.motor-pos-cmd
+#net vpos-cmd axis.7.motor-pos-cmd => arduino.axis7-cmd
+
+
+### W-axis (axis.8) ###
+#unlinkp axis.8.home-sw-in
+#net home-W arduino.wHome => axis.8.home-sw-in
+
+#unlinkp axis.8.neg-lim-sw-in
+#net min-W => arduino.wMinLmt => axis.8.neg-lim-sw-in
+
+#unlinkp axis.8.pos-lim-sw-in
+#net max-W => arduino.wMaxLmt => axis.8.pos-lim-sw-in
+
+#unlinkp axis.7.motor-pos-cmd
+#net wpos-cmd axis.8.motor-pos-cmd => arduino.axis8-cmd
+
