@@ -6,8 +6,16 @@ How to going in 7 easy steps:
 1. Install linuxCNC on an old (USB enabled) computer.
 	You can get it for free at http://linuxcnc.org/
 
+	For Debian based Linux distros (Ubuntu, Mint, etc.), you might want to check out the precompiled .deb packages available here: http://buildbot.linuxcnc.org/
+	
+	When using them you easily get a 'simulation-only' install of LinuxCNC, but this is sufficient for using EMC-2-Arduino in most cases. You don't get the realtime kernel	extensions that guarantee timing and responsivness, but it significantly broadens the install targets for LinuxCNC and makes life generally easier. Use at your own risk.
+
 2. Open the EmcArduino firmware adjust to suit, upload it to your UNO/Arduino Mega 2560.
 	It can be done with an UNO if your really clever about pin managment.
+
+	You'll need to get a library for your Arduino IDE to include with EMC-2-Arduino. Download it here (http://code.google.com/p/digitalwritefast/), unzip and put it in the ‘libraries’ 		subfolder of your arduino IDE (ex. /home/user/arduino-1.0.2/libraries/digitalwritefast).
+
+	If you use the interrupt safe version (recommended), you’ll need to change either the library or the emc2arduino .ino because only digitalwritefast (not digitalwritefast2) is defined in that	version. A global search-and-replace for digitalwritefast2 -> digitalwritefast seems to work.
 
 3. Run the "EMC2 Stepconf Wizard" to setup your machine, it will by default create a folder
    on your desktop called "my-mill".
@@ -34,5 +42,9 @@ Tips: Inside the my-mill.ini the following settings <> to english are:
 MAX_VELOCITY = 2.33		<>	Maximum speed limit for an axis (in feet/meters per second).
 HOME = 2.0			<>	Where your home SWITCH is located for that axis. (in inches/mm)
 HOME_OFFSET = 0.0		<>	Where to move to after it finds the switch. (in inches/mm)
+
+If you don't have a paralell port (or aren't using the realtime extensions to LinuxCNC), you might need to comment out all lines with references to 'parport' in the Stepconf generated .hal. You aren't using this to control your CNC, so you don't need them.
+
+For example, in my-mill.hal, the line 'loadrt probe_parport' changes to '#loadrt probe_parport'. Do that (add a '#' to comment) for every line that you find with the word 'parport'. Remember that this gets overwritten each time you run Stepconf, so be careful with that.
 
 Further reading on these and more settings are found at http://linuxcnc.org/index.php/english/documentation
