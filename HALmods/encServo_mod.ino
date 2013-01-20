@@ -1,6 +1,8 @@
 // This is a sample mod to add (quadrature encoded) servo support to HAL2Arduino 0.1 or higher.
-// To enable, just add moveServos(); to the doUrgentStuff() function.
-// In this example it has already been done by default.
+// To enable:
+// 1. Copy this file into the HAL2Arduino folder.
+// 2. Add moveServos(); to the doUrgentStuff() function located in the HAL2Arduino file.
+
 
 #include <Encoder.h> // http://www.pjrc.com/teensy/td_libs_Encoder.html
 #include <digitalWriteFast.h> // http://code.google.com/p/digitalwritefast/
