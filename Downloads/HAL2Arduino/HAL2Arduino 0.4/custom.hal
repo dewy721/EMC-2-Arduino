@@ -1,0 +1,54 @@
+#First load the Python user module named /user/bin/9axis_Hal2Arduino with the name 'Hal2Arduino'
+loadusr -Wn Hal2Arduino /home/dewy/Desktop/my-mill/HAL2Arduino-0.4.py
+
+#Second 'unlinkp' our pins to make them available for use.
+# Then use 'net' to recreate/hook into them.
+#  Comment out any sections that your machine doesn't have.
+
+#unlinkp axis.0.motor-pos-cmd
+#net xpos-cmd axis.0.motor-pos-cmd Hal2Arduino.axis_0_motor-pos-cmd 
+
+#unlinkp axis.1.motor-pos-cmd
+#net ypos-cmd axis.1.motor-pos-cmd Hal2Arduino.axis_1_motor-pos-cmd
+
+#unlinkp axis.2.motor-pos-cmd
+#net zpos-cmd axis.2.motor-pos-cmd Hal2Arduino.axis_2_motor-pos-cmd
+
+#unlinkp axis.0.joint-pos-cmd
+#unlinkp axis.1.joint-pos-cmd
+#unlinkp axis.2.joint-pos-cmd
+
+net xpos-cmd Hal2Arduino.axis_0_joint-pos-cmd
+net ypos-cmd Hal2Arduino.axis_1_joint-pos-cmd
+net zpos-cmd Hal2Arduino.axis_2_joint-pos-cmd
+
+unlinkp axis.0.home-sw-in
+net home-X Hal2Arduino.axis_0_home-sw-in axis.0.home-sw-in
+
+unlinkp axis.1.home-sw-in
+net home-Y Hal2Arduino.axis_1_home-sw-in axis.1.home-sw-in
+
+unlinkp axis.2.home-sw-in
+net home-Z Hal2Arduino.axis_2_home-sw-in axis.2.home-sw-in
+
+unlinkp axis.0.neg-lim-sw-in
+unlinkp axis.1.neg-lim-sw-in
+unlinkp axis.2.neg-lim-sw-in
+net min-X Hal2Arduino.axis_0_neg-lim-sw-in axis.0.neg-lim-sw-in
+net min-Y Hal2Arduino.axis_1_neg-lim-sw-in axis.1.neg-lim-sw-in
+net min-Z Hal2Arduino.axis_2_neg-lim-sw-in axis.2.neg-lim-sw-in
+
+unlinkp axis.0.pos-lim-sw-in
+unlinkp axis.1.pos-lim-sw-in
+unlinkp axis.2.pos-lim-sw-in
+net max-X Hal2Arduino.axis_0_pos-lim-sw-in axis.0.pos-lim-sw-in
+net max-Y Hal2Arduino.axis_1_pos-lim-sw-in axis.1.pos-lim-sw-in
+net max-Z Hal2Arduino.axis_2_pos-lim-sw-in axis.2.pos-lim-sw-in
+
+#unlinkp axis.0.joint-vel-cmd
+#unlinkp axis.1.joint-vel-cmd
+#unlinkp axis.2.joint-vel-cmd
+
+net getXspeed Hal2Arduino.axis_0_joint-vel-cmd
+net getXspeed Hal2Arduino.axis_1_joint-vel-cmd
+net getXspeed Hal2Arduino.axis_2_joint-vel-cmd
