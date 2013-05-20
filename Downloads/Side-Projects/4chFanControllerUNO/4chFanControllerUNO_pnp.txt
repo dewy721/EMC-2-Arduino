@@ -1,0 +1,53 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=4chFanControllerUNO
+*Date=06:36:53
+*CreatedBy=Fritzing 0.7.12b.02.13.6882
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;62.5289;-36.6078;0;Bottom;Via5
+2;;;143.597;-29.7742;180;Bottom;Arduino UNO R3
+3;;300 mil [THT];78.1756;-17.0488;-90;Bottom;D4
+4;2.2;THT;9.59556;-41.2042;90;Bottom;2O
+5;;300 mil [THT];47.6956;-17.0488;-90;Bottom;D1
+6;1k;THT;136.596;-15.8042;90;Bottom;1kO
+7;;;55.3156;-14.5342;0;Bottom;SYS Fan
+8;;TO220 [THT];9.59556;-55.4282;0;Bottom;Q5
+9;;;45.1556;-14.5342;0;Bottom;CPU Fan
+10;999µF;300 mil [THT, electrolytic];98.4956;-32.3142;90;Bottom;1000µF
+11;;TO220 [THT];60.3956;-55.4282;0;Bottom;Q3
+12;;;26.9177;-36.6078;0;Bottom;Via10
+13;;;26.9177;-26.4478;0;Bottom;Via9
+14;1k;THT;146.756;-15.8042;90;Bottom;1kO
+15;;;105.632;-23.8821;0;Bottom;Via4
+16;;;9.16309;-23.8821;0;Bottom;Via3
+17;;300 mil [THT];68.0156;-17.0488;-90;Bottom;D3
+18;;;75.6356;-14.5342;0;Bottom;GPU Fan
+19;10µF;300 mil [THT, electrolytic];73.0956;-32.3142;90;Bottom;1000µF
+20;2.2;THT;85.7956;-41.2042;90;Bottom;2O
+21;;TO220 [THT];85.7956;-55.4282;0;Bottom;Q1
+22;;;54.8319;-36.6078;0;Bottom;Via8
+23;;;54.8319;-26.4478;0;Bottom;Via7
+24;;;62.5289;-26.4478;0;Bottom;Via6
+25;2.2;THT;60.3956;-41.2042;90;Bottom;2O
+26;;;82.8489;-36.6078;0;Bottom;Via2
+27;;;82.8489;-26.4478;0;Bottom;Via1
+28;1k;THT;128.976;-15.8042;90;Bottom;1kO
+29;;;28.5017;-8.18439;0;Bottom;Fuse1
+30;;300 mil [THT];57.8556;-17.0488;-90;Bottom;D2
+31;;;65.4756;-14.5342;0;Bottom;HD Fan
+32;;;7.34131;-7.10475;0;Bottom;Power plug1
+33;10µF;300 mil [THT, electrolytic];47.6956;-32.3142;90;Bottom;1000µF
+34;;TO220 [THT];34.9956;-55.4282;0;Bottom;Q4
+35;47µF;300 mil [THT, electrolytic];22.2956;-32.3142;90;Bottom;1000µF
+36;2.2;THT;34.9956;-41.2042;90;Bottom;2O
+37;1k;THT;134.056;-15.8042;90;Bottom;1kO
+38;;THT;4.51556;-18.3442;0;Bottom;TM1803 RGB LED Strip
