@@ -1,4 +1,4 @@
-// That's it your done. :)
+// That's it you're done. :)
 // This is the program that will actually run things.
 // There should be no need to modify it.
 
