@@ -1,4 +1,4 @@
-**EMC 2 Arduino**
+**Idea About: EMC 2 Arduino Project**
 ==============
 
 EMC 2 Arduino is a small collection of files intended to allow a person with
@@ -7,7 +7,7 @@ LinuxCNC to begin building their very own CNC machine cheaply and quickly with
 a variety of components, ranging from low-end inexpensive (even salvaged)
 components such as old steppers and computer parts to high-end linear servos.
 
-**Details**
+**Details  of EMC 2 Arduino**
 --------------
 The current version (these files) is 0.07b. It and previous versions can be found in the Downloads folder, zipped for your convenience. 
 
